@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 from utils import get_glade_file_path, get_wal_colors
-from daybutton import DayButton, DayButtonGroup
 from eventelement import EventElement
 from event import LocalEvents, Event
 import json
-import pywal
-import calendar
 import datetime
 from gi.repository import Gtk, Gdk
 import gi

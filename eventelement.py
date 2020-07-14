@@ -7,6 +7,10 @@ gi.require_version("Gtk", "3.0")
 
 
 class EventElement(Gtk.Box):
+    '''
+    Event element UI, made with Glade
+    '''
+
     def __init__(self, event, ondelete):
         Gtk.Box.__init__(
             self, orientation=Gtk.Orientation.VERTICAL, spacing=0)

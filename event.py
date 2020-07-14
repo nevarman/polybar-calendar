@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import datetime
-from utils import get_json_file
+from utils import get_localevents_json_file
 import os
 import json
 from collections import namedtuple
-FILE_NAME = get_json_file()
+FILE_NAME = get_localevents_json_file()
 
 
 class EventsBase():
@@ -32,6 +32,10 @@ class EventsBase():
 
 
 class LocalEvents(EventsBase):
+    '''
+    Local events that are being loaded locally from a json file
+    '''
+
     def _load_events(self):
         if not os.path.isfile(FILE_NAME):
             self.events: dict = {}
@@ -65,6 +69,10 @@ class LocalEvents(EventsBase):
 
 
 class Event():
+    '''
+    Event class that represents a time a title and content
+    '''
+
     def __init__(self, time, subject, event):
         self.time = time
         self.subject = subject
@@ -76,16 +84,3 @@ class Event():
     @staticmethod
     def fromJson(str):
         return json.loads(str, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
-
-
-# events = Events()
-# #events.add_event((2020, 6, 15), Event(("21", "35"), "subject", "subject"))
-# events.remove_event((2020, 6, 15), Event(("21", "35"), "subject", "subject"))
-# # # now = (datetime.datetime.now().hour)
-# # # print(now)
-# events.add_event((2020, 6, 13), Event(
-#     (datetime.datetime.now().hour, datetime.datetime.now().minute), 'subject', 'event'))
-# print(events.get_events((2020, 6, 13))[0])
-
-# # print(json.loads(events.events.get(
-# #     datetime.date.today().strftime("%d %b %Y"))[0]))
