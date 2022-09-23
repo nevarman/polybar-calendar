@@ -4,9 +4,10 @@ from eventelement import EventElement
 from event import LocalEvents, Event
 import json
 import datetime
-from gi.repository import Gtk, Gdk
 import gi
 gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gdk
+
 
 
 class PolybarCalendar(Gtk.Builder):
