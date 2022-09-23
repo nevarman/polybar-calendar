@@ -1,9 +1,11 @@
 from event import Event
+import gi
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 from utils import get_glade_file_path
-import gi
+
 import json
-gi.require_version("Gtk", "3.0")
+
 
 
 class EventElement(Gtk.Box):
